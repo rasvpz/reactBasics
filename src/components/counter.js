@@ -6,8 +6,6 @@ function counter(props) {
   return (
       <div>
         <Heading>{title} {count}</Heading>
-        <Heading>{title} {count}</Heading>
-
       </div>
   )
 }

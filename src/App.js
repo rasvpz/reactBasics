@@ -11,13 +11,23 @@ function App() {
     myStateSetCount(myStateCount+1)
   }
 
-  const obj = {title : 'First Counter', count : myStateCount}
-  
+  const obj =[
+    {title : 'First Counter', count : myStateCount},
+    {title : 'Second Counter', count : myStateCount},
+    {title : 'Third Counter', count : myStateCount}
+  ] 
+
   return (
     <ChakraProvider>
       <Header />  
       <Button onClick={addCount} colorScheme='blue'>ADD</Button>
-      <Counter {...obj} />
+     {
+       obj.map((dtls, index)=>
+          (
+            <Counter key={index} {...dtls} />
+          )
+       )
+     }
     </ChakraProvider>
   );
 }
