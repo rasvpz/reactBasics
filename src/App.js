@@ -1,13 +1,23 @@
 import { ChakraProvider } from '@chakra-ui/react'
-import {Text } from '@chakra-ui/react'
+import {Text, Button} from '@chakra-ui/react'
 import Header from './components/Header'
+import {useState} from 'react'
 
 function App() {
-  const name = ' Rasheed'
+  const [myStateCount, myStateSetCount] = useState(0)
+
+  const addCount =() =>{
+
+    myStateSetCount(myStateCount+1)
+    console.log(myStateCount);
+
+  }
+
   return (
     <ChakraProvider>
-      <Header myData = {name} />     
-      <Text>Hi this is {name}</Text>
+      <Header />  
+      <Button onClick={addCount} colorScheme='blue'>ADD</Button>
+      <Text>Counter : {myStateCount}</Text>
     </ChakraProvider>
   );
 }
